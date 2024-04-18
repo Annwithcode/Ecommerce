@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'ecomprj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'imageup',
+        'NAME': 'ecomprj',
         'USER':'root',
         'PASSWORD' :'root'
 

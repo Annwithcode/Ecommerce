@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'ecomprj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'imageup',
+        'NAME': 'ecomprj1',
         'USER':'root',
         'PASSWORD' :'root'
 
@@ -138,7 +138,7 @@ JAZZMIN_SETTINGS={
     'site_header':"NESTCART ",
     'site_brand':"HAPPY TO SERVE YOU",
     'site_logo':'img/hero-img-1.png',
-    'copyright':'www.anagha.com'
+    'copyright':'www.ecomprj.com'
 }
  
 

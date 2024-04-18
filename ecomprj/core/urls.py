@@ -4,5 +4,6 @@ from core.views import *
 
 urlpatterns = [
  
-    path('',index,name='index')
+    path('',index,name='index'),
+    path('category/',categorylist_view,name='category')
 ]
