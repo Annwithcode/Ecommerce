@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.html import mark_safe
 from shortuuid.django_fields import ShortUUIDField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 
@@ -24,7 +25,6 @@ RATING=(
     (3,'★★★☆☆'),
     (4,'★★★★☆'),
     (5,'★★★★★')
-
 
 )
 
@@ -56,7 +56,7 @@ class Vendor(models.Model):
     vid=ShortUUIDField(unique=True,length=7,max_length=10,prefix='VEN',alphabet='abcde12345')
     title=models.CharField(max_length=100)
     image=models.ImageField(upload_to='user_directory_path')
-    description=models.TextField(null=True,blank=True)
+    description=RichTextUploadingField(null=True,blank=True)
 
     address=models.CharField(max_length=100,default='Kozhikode')
     contact=models.CharField(max_length=100,default='Kozhikode')
@@ -86,14 +86,14 @@ class Product(models.Model):
     user=models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
     Category=models.ForeignKey(Category,on_delete=models.SET_NULL,null=True,related_name='Category')
 
-
+    Vendor=models.ForeignKey(Vendor,on_delete=models.SET_NULL,null=True,related_name='products')
     title=models.CharField(max_length=100)
     image=models.ImageField(upload_to='user_directory_path',default='product.jpg')
-    description=models.TextField(null=True,blank=True,default='This is a product')
+    description=RichTextUploadingField(null=True,blank=True,default='This is a product')
 
     price=models.DecimalField(max_digits=10,decimal_places=2,default='2.99')
     old_price = models.DecimalField(max_digits=10, decimal_places=2, default='2.99')
-    specification=models.TextField(null=True,blank=True)
+    specification=RichTextUploadingField(null=True,blank=True)
     # tags=models.ForeignKey(tagsgs)
     product_status=models.CharField(choices=STATUS,max_length=10,default='in_review')
 

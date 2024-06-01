@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'userauths',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -62,12 +63,13 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'core.context_processors.default',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-        },
+        }
     },
 ]
 
@@ -143,3 +145,21 @@ JAZZMIN_SETTINGS={
  
 
 AUTH_USER_MODEL='userauths.User'
+CKEDITOR_UPLOAD_PATH='uploads/'
+
+
+CKEDITOR_CONFIGS={
+    'default':{
+        'skin':'moono',
+        'CodeSnippet_theme':'monokai',
+        'toolbar':'all',
+        'extraPlugins':','.join(
+            [
+                'codesnippet',
+                'widget',
+                'dialog'
+
+            ]
+        ),
+    }
+}
